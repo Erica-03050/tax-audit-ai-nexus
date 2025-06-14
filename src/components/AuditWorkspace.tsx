@@ -16,6 +16,10 @@ import {
 } from "lucide-react";
 
 export const AuditWorkspace = () => {
+  const handleExperienceAI = () => {
+    window.open('https://www.coze.cn/s/PcAN_7Qo7v0/', '_blank');
+  };
+
   const auditCases = [
     {
       id: "RD-2024-001",
@@ -126,9 +130,9 @@ export const AuditWorkspace = () => {
                 )}
 
                 <div className="flex space-x-2">
-                  <Button size="sm" variant="outline" className="flex-1">
+                  <Button size="sm" variant="outline" className="flex-1" onClick={handleExperienceAI}>
                     <Eye className="h-4 w-4 mr-1" />
-                    查看详情
+                    体验智能助手
                   </Button>
                   <Button size="sm" variant="outline">
                     <Download className="h-4 w-4" />

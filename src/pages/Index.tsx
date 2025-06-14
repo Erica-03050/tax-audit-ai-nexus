@@ -26,6 +26,10 @@ import { RiskMonitor } from "@/components/RiskMonitor";
 import { AuditProcess } from "@/components/AuditProcess";
 
 const Index = () => {
+  const handleExperienceAI = () => {
+    window.open('https://www.coze.cn/s/PcAN_7Qo7v0/', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <Header />
@@ -50,9 +54,9 @@ const Index = () => {
               风险智能预警、原始凭证深度审核的全程智能化管理，助力税务审核工作提质增效
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 shadow-lg">
+              <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 shadow-lg" onClick={handleExperienceAI}>
                 <UserCheck className="mr-2 h-5 w-5" />
-                体验智能审核工作台
+                体验智能审核助手
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <FileText className="mr-2 h-5 w-5" />
@@ -65,8 +69,6 @@ const Index = () => {
 
       {/* Stats Section */}
       <StatsCards />
-
-      {/* 新增：审核流程展示 */}
       <AuditProcess />
 
       {/* Core Features */}
@@ -243,9 +245,9 @@ const Index = () => {
               基于真实审核流程的专业解决方案，助力税务工作智能化升级
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50" onClick={handleExperienceAI}>
                 <UserCheck className="mr-2 h-5 w-5" />
-                申请试用账号
+                立即体验智能助手
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Download className="mr-2 h-5 w-5" />

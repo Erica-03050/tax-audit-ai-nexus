@@ -15,6 +15,10 @@ import { useState } from "react";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleExperienceAI = () => {
+    window.open('https://www.coze.cn/s/PcAN_7Qo7v0/', '_blank');
+  };
+
   return (
     <header className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-blue-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,9 +62,9 @@ export const Header = () => {
               安全认证
             </Badge>
 
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={handleExperienceAI}>
               <LogIn className="h-4 w-4 mr-2" />
-              登录系统
+              体验智能助手
             </Button>
 
             {/* Mobile menu button */}
