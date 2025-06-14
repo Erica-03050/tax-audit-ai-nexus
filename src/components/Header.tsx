@@ -19,13 +19,22 @@ export const Header = () => {
     window.open('https://www.coze.cn/s/PcAN_7Qo7v0/', '_blank');
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-blue-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
               <Shield className="h-8 w-8 text-blue-600 mr-3" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">税研智审通</h1>
@@ -36,18 +45,30 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <button 
+              onClick={() => scrollToSection('core-features')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
               功能介绍
-            </a>
-            <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('benefits')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
               产品优势
-            </a>
-            <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              解决方案
-            </a>
-            <a href="#support" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              技术支持
-            </a>
+            </button>
+            <button 
+              onClick={() => scrollToSection('audit-process')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              审核流程
+            </button>
+            <button 
+              onClick={() => scrollToSection('risk-monitor')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              风险监控
+            </button>
           </nav>
 
           {/* Right side actions */}
@@ -83,18 +104,30 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col space-y-4">
-              <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium">
+              <button 
+                onClick={() => scrollToSection('core-features')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
                 功能介绍
-              </a>
-              <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium">
+              </button>
+              <button 
+                onClick={() => scrollToSection('benefits')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
                 产品优势
-              </a>
-              <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium">
-                解决方案
-              </a>
-              <a href="#support" className="text-gray-700 hover:text-blue-600 font-medium">
-                技术支持
-              </a>
+              </button>
+              <button 
+                onClick={() => scrollToSection('audit-process')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
+                审核流程
+              </button>
+              <button 
+                onClick={() => scrollToSection('risk-monitor')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
+                风险监控
+              </button>
             </nav>
           </div>
         )}
