@@ -29,6 +29,13 @@ const Index = () => {
     window.open('https://www.coze.cn/s/PcAN_7Qo7v0/', '_blank');
   };
 
+  const scrollToAuditProcess = () => {
+    const auditProcessSection = document.getElementById('audit-process');
+    if (auditProcessSection) {
+      auditProcessSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <Header />
@@ -57,7 +64,7 @@ const Index = () => {
                 <UserCheck className="mr-2 h-5 w-5" />
                 体验智能审核助手
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:border-white" onClick={scrollToAuditProcess}>
                 <FileText className="mr-2 h-5 w-5" />
                 查看审核流程详解
               </Button>
@@ -66,7 +73,9 @@ const Index = () => {
         </div>
       </section>
 
-      <AuditProcess />
+      <div id="audit-process">
+        <AuditProcess />
+      </div>
 
       {/* Core Features */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
