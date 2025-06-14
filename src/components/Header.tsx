@@ -46,28 +46,28 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
-              onClick={() => scrollToSection('core-features')} 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              功能介绍
-            </button>
-            <button 
-              onClick={() => scrollToSection('benefits')} 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              产品优势
-            </button>
-            <button 
               onClick={() => scrollToSection('audit-process')} 
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               审核流程
             </button>
             <button 
+              onClick={() => scrollToSection('core-features')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              功能介绍
+            </button>
+            <button 
               onClick={() => scrollToSection('risk-monitor')} 
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               风险监控
+            </button>
+            <button 
+              onClick={() => scrollToSection('benefits')} 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              产品优势
             </button>
           </nav>
 
@@ -105,28 +105,28 @@ export const Header = () => {
           <div className="md:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col space-y-4">
               <button 
-                onClick={() => scrollToSection('core-features')} 
-                className="text-gray-700 hover:text-blue-600 font-medium text-left"
-              >
-                功能介绍
-              </button>
-              <button 
-                onClick={() => scrollToSection('benefits')} 
-                className="text-gray-700 hover:text-blue-600 font-medium text-left"
-              >
-                产品优势
-              </button>
-              <button 
                 onClick={() => scrollToSection('audit-process')} 
                 className="text-gray-700 hover:text-blue-600 font-medium text-left"
               >
                 审核流程
               </button>
               <button 
+                onClick={() => scrollToSection('core-features')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
+                功能介绍
+              </button>
+              <button 
                 onClick={() => scrollToSection('risk-monitor')} 
                 className="text-gray-700 hover:text-blue-600 font-medium text-left"
               >
                 风险监控
+              </button>
+              <button 
+                onClick={() => scrollToSection('benefits')} 
+                className="text-gray-700 hover:text-blue-600 font-medium text-left"
+              >
+                产品优势
               </button>
             </nav>
           </div>
