@@ -20,7 +20,6 @@ import {
   Bell
 } from "lucide-react";
 import { Header } from "@/components/Header";
-import { StatsCards } from "@/components/StatsCards";
 import { AuditWorkspace } from "@/components/AuditWorkspace";
 import { RiskMonitor } from "@/components/RiskMonitor";
 import { AuditProcess } from "@/components/AuditProcess";
@@ -67,8 +66,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <StatsCards />
       <AuditProcess />
 
       {/* Core Features */}
