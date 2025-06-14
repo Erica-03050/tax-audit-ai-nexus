@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -236,30 +237,6 @@ const Index = () => {
               <p className="text-blue-200">
                 实时同步政策变化，确保审核依据准确
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              立即体验税研智审通
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              基于真实审核流程的专业解决方案，助力税务工作智能化升级
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50" onClick={handleExperienceAI}>
-                <UserCheck className="mr-2 h-5 w-5" />
-                立即体验智能助手
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Download className="mr-2 h-5 w-5" />
-                下载产品手册
-              </Button>
             </div>
           </div>
         </div>

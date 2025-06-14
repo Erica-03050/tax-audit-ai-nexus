@@ -13,58 +13,59 @@ import {
   FileCheck,
   XCircle,
   ArrowRight,
-  ArrowDown
+  ArrowDown,
+  BarChart3
 } from "lucide-react";
 
 export const AuditProcess = () => {
   const processSteps = [
     {
       id: 1,
-      title: "企业提交申报",
-      description: "企业准备并提交《研发费用加计扣除优惠明细表》（A107012）",
+      title: "企业提交A107012表",
+      description: "企业提交《研发费用加计扣除优惠明细表》（A107012）",
       icon: FileText,
       status: "completed",
       details: ["填写研发费用明细", "提交相关附表", "系统接收审核"]
     },
     {
       id: 2,
-      title: "系统初步审核",
-      description: "自动审核附表关键指标（经费、材料费、人工费占比等）",
+      title: "系统自动审核指标",
+      description: "自动审核A107012表关键指标，判断是否存在异常",
       icon: Search,
       status: "processing",
-      details: ["费用结构分析", "比例合理性检查", "异常指标识别"]
+      details: ["费用结构分析", "比例合理性检查", "异常指标识别", "无异常则直接通过"]
     },
     {
       id: 3,
-      title: "风险评估决策",
-      description: "基于关键指标判断是否存在异常风险",
-      icon: AlertTriangle,
+      title: "要求提供明细账",
+      description: "发现异常时，要求企业提供明细账及年度汇总表",
+      icon: BarChart3,
       status: "pending",
-      details: ["低风险：直接通过", "中高风险：进入深度审核"]
+      details: ["6类费用明细账", "年度汇总表", "相关支撑材料"]
     },
     {
       id: 4,
-      title: "约谈与资料补充",
-      description: "税务机关发起约谈，要求企业提交备查资料",
-      icon: Users,
+      title: "明细账指标审核",
+      description: "审核明细账中的各项指标是否合理",
+      icon: FileCheck,
       status: "pending",
-      details: ["明细账（6类费用）", "年度汇总表", "原始凭证材料"]
+      details: ["费用归集合理性", "账务处理规范性", "数据一致性验证"]
     },
     {
       id: 5,
-      title: "深度审核验证",
-      description: "全面审核所有原始凭证和支撑材料",
-      icon: FileCheck,
+      title: "原始凭证审核",
+      description: "深度审核原始凭证和支撑材料的真实性",
+      icon: Users,
       status: "pending",
-      details: ["项目立项书验证", "人员资质审核", "费用凭证核实"]
+      details: ["项目立项书验证", "人员资质审核", "费用凭证核实", "材料消耗审核"]
     },
     {
       id: 6,
-      title: "最终审核结论",
-      description: "基于全面审核出具最终结论和处理意见",
+      title: "出具审核结论",
+      description: "基于三个审核阶段出具最终结论和处理意见",
       icon: CheckCircle,
       status: "pending",
-      details: ["合规通过", "补充修正", "存在风险"]
+      details: ["合规通过", "补充修正", "存在风险", "后续处理建议"]
     }
   ];
 
@@ -103,10 +104,10 @@ export const AuditProcess = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            智能审核流程
+            三阶段智能审核流程
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            基于真实业务场景设计的研发费用审核流程，实现从申报到结论的全程智能化管理
+            基于真实业务场景的三个关键审核阶段：A107012表审核 → 明细账审核 → 原始凭证审核
           </p>
         </div>
 
@@ -119,7 +120,7 @@ export const AuditProcess = () => {
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="outline" className="text-xs font-medium">
-                        步骤 {step.id}
+                        阶段 {step.id}
                       </Badge>
                       <StatusIcon className="h-5 w-5" />
                     </div>
@@ -161,65 +162,85 @@ export const AuditProcess = () => {
           })}
         </div>
 
-        {/* 关键审核要点 */}
-        <div className="bg-white rounded-xl shadow-lg p-8">
+        {/* 三阶段审核重点说明 */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
-            原始凭证审核要点
+            三阶段审核要点详解
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-medium text-blue-900 mb-2">项目管理类</h4>
-              <ul className="text-sm text-blue-700 space-y-1">
-                <li>• 项目立项书、意向书</li>
-                <li>• 项目组长签字确认</li>
-                <li>• 人员公示表</li>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+              <h4 className="font-bold text-blue-900 mb-3 flex items-center">
+                <FileText className="h-5 w-5 mr-2" />
+                第一阶段：A107012表审核
+              </h4>
+              <ul className="text-sm text-blue-700 space-y-2">
+                <li>• 研发费用结构合理性</li>
+                <li>• 各类费用占比检查</li>
+                <li>• 异常指标自动识别</li>
+                <li>• 政策符合性初步判断</li>
               </ul>
             </div>
             
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-medium text-green-900 mb-2">人员资质类</h4>
-              <ul className="text-sm text-green-700 space-y-1">
-                <li>• 学历证书验证</li>
-                <li>• 入职信息（HR数据）</li>
-                <li>• 任职经历证明</li>
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
+              <h4 className="font-bold text-yellow-900 mb-3 flex items-center">
+                <BarChart3 className="h-5 w-5 mr-2" />
+                第二阶段：明细账审核
+              </h4>
+              <ul className="text-sm text-yellow-700 space-y-2">
+                <li>• 6类费用明细账核查</li>
+                <li>• 费用归集合理性分析</li>
+                <li>• 账务处理规范性检查</li>
+                <li>• 年度汇总表数据一致性</li>
               </ul>
             </div>
             
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-medium text-purple-900 mb-2">费用凭证类</h4>
-              <ul className="text-sm text-purple-700 space-y-1">
-                <li>• 材料费：出库单、领料单</li>
-                <li>• 原始发票、合同</li>
-                <li>• 银行流水记录</li>
+            <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+              <h4 className="font-bold text-green-900 mb-3 flex items-center">
+                <Users className="h-5 w-5 mr-2" />
+                第三阶段：原始凭证审核
+              </h4>
+              <ul className="text-sm text-green-700 space-y-2">
+                <li>• 项目立项书真实性</li>
+                <li>• 人员资质证明材料</li>
+                <li>• 费用凭证完整性</li>
+                <li>• 材料消耗合理性</li>
               </ul>
             </div>
-            
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <h4 className="font-medium text-orange-900 mb-2">知识产权类</h4>
-              <ul className="text-sm text-orange-700 space-y-1">
-                <li>• 专利证书</li>
-                <li>• 软件著作权</li>
-                <li>• 其他知识产权证明</li>
-              </ul>
+          </div>
+        </div>
+
+        {/* 审核决策流程图 */}
+        <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-8">
+          <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+            智能审核决策流程
+          </h3>
+          <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2">
+                A107012
+              </div>
+              <p className="text-sm text-gray-600">表格审核</p>
             </div>
-            
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <h4 className="font-medium text-red-900 mb-2">材料消耗类</h4>
-              <ul className="text-sm text-red-700 space-y-1">
-                <li>• 实验材料消耗单</li>
-                <li>• 材料领用记录</li>
-                <li>• 库存管理凭证</li>
-              </ul>
+            <ArrowRight className="h-6 w-6 text-gray-400 transform md:transform-none rotate-90 md:rotate-0" />
+            <div className="text-center">
+              <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold mb-2">
+                ?
+              </div>
+              <p className="text-sm text-gray-600">异常判断</p>
             </div>
-            
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-medium text-yellow-900 mb-2">财务账务类</h4>
-              <ul className="text-sm text-yellow-700 space-y-1">
-                <li>• 6类费用明细账</li>
-                <li>• 年度汇总表</li>
-                <li>• 会计凭证</li>
-              </ul>
+            <div className="flex flex-col items-center">
+              <ArrowRight className="h-6 w-6 text-gray-400 transform rotate-90 md:rotate-0" />
+              <span className="text-xs text-green-600 mt-1">无异常</span>
             </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-2">
+                ✓
+              </div>
+              <p className="text-sm text-gray-600">直接通过</p>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">有异常 → 进入明细账审核 → 原始凭证审核</p>
           </div>
         </div>
       </div>
