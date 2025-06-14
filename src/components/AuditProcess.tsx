@@ -13,10 +13,15 @@ import {
   XCircle,
   ArrowRight,
   ArrowDown,
-  BarChart3
+  BarChart3,
+  ExternalLink
 } from "lucide-react";
 
 export const AuditProcess = () => {
+  const handleViewBusinessFlow = () => {
+    window.open('https://drive.google.com/file/d/18yjbgUiSvPwPBiH59QkGgm-u2-x47ouP/view?usp=sharing', '_blank');
+  };
+
   const processSteps = [
     {
       id: 1,
@@ -105,9 +110,17 @@ export const AuditProcess = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             三阶段智能审核流程
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
             基于真实业务场景的三个关键审核阶段：A107012表审核 → 明细账审核 → 原始凭证审核
           </p>
+          <Button 
+            onClick={handleViewBusinessFlow}
+            variant="outline" 
+            className="bg-white hover:bg-blue-50 border-blue-200 text-blue-700 hover:text-blue-800"
+          >
+            <ExternalLink className="h-4 w-4 mr-2" />
+            查看实际业务流程图
+          </Button>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
