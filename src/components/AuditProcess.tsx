@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -163,7 +162,7 @@ export const AuditProcess = () => {
         </div>
 
         {/* 三阶段审核重点说明 */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <div className="bg-white rounded-xl shadow-lg p-8">
           <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
             三阶段审核要点详解
           </h3>
@@ -206,41 +205,6 @@ export const AuditProcess = () => {
                 <li>• 材料消耗合理性</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        {/* 审核决策流程图 */}
-        <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
-            智能审核决策流程
-          </h3>
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2">
-                A107012
-              </div>
-              <p className="text-sm text-gray-600">表格审核</p>
-            </div>
-            <ArrowRight className="h-6 w-6 text-gray-400 transform md:transform-none rotate-90 md:rotate-0" />
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold mb-2">
-                ?
-              </div>
-              <p className="text-sm text-gray-600">异常判断</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <ArrowRight className="h-6 w-6 text-gray-400 transform rotate-90 md:rotate-0" />
-              <span className="text-xs text-green-600 mt-1">无异常</span>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-2">
-                ✓
-              </div>
-              <p className="text-sm text-gray-600">直接通过</p>
-            </div>
-          </div>
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">有异常 → 进入明细账审核 → 原始凭证审核</p>
           </div>
         </div>
       </div>
