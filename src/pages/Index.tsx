@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -59,14 +58,10 @@ const Index = () => {
               基于《研发费用加计扣除优惠明细表》（A107012）审核实务，实现关键指标自动分析、
               风险智能预警、原始凭证深度审核的全程智能化管理，助力税务审核工作提质增效
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 shadow-lg" onClick={handleExperienceAI}>
                 <UserCheck className="mr-2 h-5 w-5" />
                 体验智能审核助手
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:border-white" onClick={scrollToAuditProcess}>
-                <FileText className="mr-2 h-5 w-5" />
-                查看审核流程详解
               </Button>
             </div>
           </div>
