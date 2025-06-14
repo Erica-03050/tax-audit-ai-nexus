@@ -86,6 +86,18 @@ export const AuditProcess = () => {
     }
   };
 
+  const getCardBackgroundColor = (id: number) => {
+    switch (id) {
+      case 1: return 'bg-green-50 hover:bg-green-100';
+      case 2: return 'bg-blue-50 hover:bg-blue-100';
+      case 3: return 'bg-yellow-50 hover:bg-yellow-100';
+      case 4: return 'bg-purple-50 hover:bg-purple-100';
+      case 5: return 'bg-indigo-50 hover:bg-indigo-100';
+      case 6: return 'bg-emerald-50 hover:bg-emerald-100';
+      default: return 'bg-gray-50 hover:bg-gray-100';
+    }
+  };
+
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,28 +115,28 @@ export const AuditProcess = () => {
             const StatusIcon = getStatusIcon(step.status);
             return (
               <div key={step.id} className="relative">
-                <Card className={`border-2 ${getStatusColor(step.status)} hover:shadow-xl transition-all duration-300`}>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="text-xs">
+                <Card className={`border-2 ${getStatusColor(step.status)} ${getCardBackgroundColor(step.id)} hover:shadow-xl transition-all duration-300`}>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="outline" className="text-xs font-medium">
                         步骤 {step.id}
                       </Badge>
                       <StatusIcon className="h-5 w-5" />
                     </div>
-                    <CardTitle className="text-lg flex items-center">
+                    <CardTitle className="text-lg flex items-center text-gray-900 mb-2">
                       <step.icon className="h-5 w-5 mr-2" />
                       {step.title}
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-gray-600 leading-relaxed">
                       {step.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="pt-0">
                     <ul className="space-y-2">
                       {step.details.map((detail, idx) => (
-                        <li key={idx} className="text-sm text-gray-600 flex items-center">
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2" />
-                          {detail}
+                        <li key={idx} className="text-sm text-gray-700 flex items-start">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0" />
+                          <span className="leading-relaxed">{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -133,7 +145,7 @@ export const AuditProcess = () => {
                 
                 {/* 连接箭头 */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                     <ArrowRight className="h-6 w-6 text-gray-400" />
                   </div>
                 )}
