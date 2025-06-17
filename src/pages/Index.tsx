@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -274,9 +273,7 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">联系我们</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>客服热线：400-xxx-xxxx</li>
                 <li>技术支持：xht_322@zuel.edu.cn</li>
-                <li>商务合作：business@example.com</li>
               </ul>
             </div>
           </div>
